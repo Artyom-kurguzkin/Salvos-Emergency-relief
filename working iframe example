@@ -1,0 +1,30 @@
+# note, only works with websites that haven't implemented xframe protection or 
+# have wihitelisted your requests
+
+---
+include:
+  - interview.yml
+  - chat.yml
+  - helpline.yml
+
+---
+question: |
+  Would you like to talk?
+  <p>An iframe with default borders:</p>
+  <iframe src="https://en.wikipedia.org/wiki/HTML_element#Frames" width="100%" height="300">
+  </iframe>
+field: interview_choice
+buttons:
+  - Yes
+  - Chat
+  - Browse
+---
+mandatory: true
+code: |
+  if interview_choice == 'Yes':
+    interview_talking
+  elif interview_choice == 'Chat':
+    interview_chat
+  elif interview_choice == 'Browse':
+    interview_browse
+---
