@@ -1,0 +1,24 @@
+---
+include:
+  - interview.yml
+  - chat.yml
+  - helpline.yml
+
+---
+question: |
+  Would you like to talk?
+field: interview_choice
+buttons:
+  - Yes
+  - Chat
+  - Browse
+---
+mandatory: true
+code: |
+  if interview_choice == 'Yes':
+    interview_talking
+  elif interview_choice == 'Chat':
+    interview_chat
+  elif interview_choice == 'Browse':
+    interview_browse
+---
