@@ -4,14 +4,19 @@ include:
   - helpline.yml
 ---
 question: |
+  <div style="text-align: center;">
+    <h1>Would you like to talk?</h1>
+  </div>
+subquestion: |
   <style>
     .btn {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      margin: 25px; /* Increased margin for spacing */
+      padding: 15px 30px; /* Increased padding for larger buttons */
+      font-size: 18px; /* Larger font size */
     }
   </style>
-  Would you like to talk?
 field: interview_choice
 buttons:
   - Yes
