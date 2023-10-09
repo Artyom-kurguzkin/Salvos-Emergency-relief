@@ -1,11 +1,16 @@
----
 include:
   - interview.yml
   - chat.yml
   - helpline.yml
-
 ---
 question: |
+  <style>
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
   Would you like to talk?
 field: interview_choice
 buttons:
