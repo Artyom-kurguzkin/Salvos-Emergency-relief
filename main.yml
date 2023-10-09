@@ -2,6 +2,7 @@ include:
   - interview.yml
   - chat.yml
   - helpline.yml
+  - browse.yml
 ---
 question: |
   <div style="text-align: center;">
@@ -22,6 +23,7 @@ buttons:
   - Yes
   - Chat
   - Browse
+  - Survey
 ---
 mandatory: true
 code: |
@@ -31,4 +33,6 @@ code: |
     interview_chat
   elif interview_choice == 'Browse':
     interview_browse
+  elif interview_choice == 'Survey':
+    interview_suvey
 ---
