@@ -4,6 +4,15 @@ include:
   - helpline.yml
   - browse.yml
 ---
+# Welcome screen
+mandatory: True
+question: Wlecome SALVOS emergency relief app
+subquestion: |
+  Add disclaimer text here
+buttons:
+  - Exit: exit
+  - Continue: continue
+---
 question: |
   <div style="text-align: center;">
     <h1>Would you like to talk?</h1>
