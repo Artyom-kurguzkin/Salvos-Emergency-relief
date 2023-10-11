@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin: 20px auto;
+        }
+
+        .welcome {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .subtext {
+            color: #666;
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .password {
+            position: relative;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: #666;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .login-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src=//"add salvos logo"// alt="Company Logo">
+        <div class="welcome">Welcome back!</div>
+        <div class="subtext">Enter staff details</div>
+        <input class="input-box" type="text" placeholder="Staff ID">
+        <div class="password">
+            <input class="input-box" type="password" id="password" placeholder="Password">
+            <span class="show-password" onclick="showPassword()">Show</span>
+        </div>
+        <div class="forgot-password" onclick="forgotPassword()">Forgot Password?</div>
+        <button class="login-button" onclick="login()">Login</button>
+    </div>
+    <script>
+        function showPassword() {
+            var passwordInput = document.getElementById('password');
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+
+        function forgotPassword() {
+            // Implement the "Forgot Password" functionality here
+        }
+
+        function login() {
+            // Check staff ID and password, and handle the login process
+            // You can add logic here to validate the staff ID and password
+            // If they are incorrect, display an error message.
+        }
+    </script>
+</body>
+</html>
