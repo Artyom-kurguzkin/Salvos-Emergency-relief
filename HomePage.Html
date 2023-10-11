@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .menu-button {
+            float: left;
+            margin-left: 20px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .notification {
+            float: right;
+            margin-right: 20px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .share-button {
+            float: right;
+            font-size: 20px;
+            color: white;
+        }
+
+        .search-button {
+            float: right;
+            margin-right: 20px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .description {
+            text-align: center;
+            font-size: 16px;
+            margin: 20px;
+        }
+
+        .tabs {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .tabs button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="menu-button" onclick="toggleMenu()">☰</div>
+        <div class="notification">🔔</div>
+        <div class="share-button">📤</div>
+        <div class="search-button">🔍</div>
+    </div>
+    <div class="title">
+        Emergency Relief
+    </div>
+    <img class="image" src="your-image-url.jpg" alt="Emergency Relief Image">
+    <div class="description">
+        <p>What is Emergency Relief?</p>
+        <p>A brief paragraph explaining emergency relief and its importance.</p>
+    </div>
+    <div class="tabs">
+        <button>Form</button>
+        <button>Contact</button>
+    </div>
+    <div class="content">
+        <!-- Your app content goes here -->
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+
+        const menuIcon = document.querySelector('.menu-icon');
+        menuIcon.style.display = 'block';
+    </script>
+</body>
+</html>
