@@ -3,6 +3,7 @@ include:
   - chat.yml
   - helpline.yml
   - browse.yml
+  - database.yml
 ---
 # Welcome screen
 mandatory: True
