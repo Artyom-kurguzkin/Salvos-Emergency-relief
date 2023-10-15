@@ -1,5 +1,9 @@
+objects:
+  - recepient: Individual
+---
+
 event: interview_suvey
-question: helpline number
+question: interview screen
 subquestion: |
   <style>
     .btn {
@@ -10,7 +14,54 @@ subquestion: |
     }
   </style>
   
-  Survey questions will go here
+fields:
+  - "Do you live in South Australia?": Individual.lives_in_sa
+datatype: noyesradio
+  - "Are you at least 18 years old?": Individual.eighteen
+datatype: noyesradio
+  - "agree to terms and conditions?": Individual.agree_conditions
+datatype: noyesradio
+  - "What is your prefered language?": Individual.language
+  - "Are you Aboriginal or Torres Strait Islander?": Individual.aboriginal
+datatype: noyesradio
+  - "Preferred method of contact"
+fields:
+  - contact: Individual.contact
+    choices:
+      - email: email
+      - phone: phone
+      - text message: text_message
+      
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: final_screen
+question: Final Screen
+subquestion: |
+  Our volunteers will contact you shortly.
+  In the meanwhile, we recommend you look into the following services: 
+
+  * ${display_services_table}
+
+---
+  % if intro_provided and email_sent_ok:
+  The e-mail was sent successfully.
+  % else:
+  There was a problem sending the e-mail.
+  % endif
+---
+# email content
+template: notification
+subject: |
+  Greetings, ${ recipient }!
+content: |
+  Our volunteers will contact you shortly.
+  In the meanwhile, we recommend you look into the following services:
+
+  * ${display_services_table}
+
+  Have a nice day!
   
 buttons:
   - Exit: exit
