@@ -1,0 +1,16 @@
+# questions.yml
+---
+question: do you live in australia?
+# subquestion: |
+#   <style>
+#     .btn {
+#       display: inline-flex;
+#       margin: 15px; /* Increased margin for spacing */
+#       padding: 15px 30px; /* Increased padding for larger buttons */
+#       font-size: 18px; /* Larger font size */
+#     }
+#   </style>
+fields:
+  - no label: lives_in_sa
+    datatype: yesnoradio
+---
