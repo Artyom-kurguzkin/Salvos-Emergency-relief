@@ -18,5 +18,12 @@ data:
     phone: (08) 8406 1600
     location: 182 Wakefield St, Adelaide SA 5000, Australia
     website: reception@nunku.org.au
-    # indigenous: False
+  - service name: St Lukes Anglicare Church
+    phone: 08 8231 4149
+    location: 35 Whitmore Square, Adelaide SA 5000, Australia
+    website: office2@saintlukessa.com.au
+  - service name: The Salvation Army
+    phone: 08 8227 0199
+    location: 277 Pirie St, Adelaide SA 5000, Australia
+    website: https://www.salvationarmy.org.au/adelaidecity/
 ---
