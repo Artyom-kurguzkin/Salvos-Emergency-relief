@@ -1,20 +1,29 @@
-# this is a placeholder template I've got from the second workshop.
-# We can modify it to either store all our information or
-# redirect to external data store.
+# data store
 ---
 variable name: database
 use object: True
 data: 
-  - service name: Brownwell House
-    phone: 1000 000 000
-    website: https://brownellhouse.org
-    indigenous: False
-  - service name: Kurlana Tarpawa
-    phone: 2000 000 000
-    website: https://dhs.sa.gov.au/how-we-help/youth-justice/youth-justice-services/kurlana-tapa-youth-justice-centre
-    indigenous: True
-  - service name: Foyer Port Adelaide
-    phone: 3000 000 000
-    website: https://www.stjohnsyouthservices.org.au/services/foyer-port-adelaide/
-    indigenous: False
+  - service name: Anglicare The Magdalene Centre
+    phone: 83059434
+    location: 82 Gilbert St, Adelaide SA 5000, Australia
+    website: https://anglicaresa.com.au
+    # open hours:
+    # indigenous: False
+  - service name: Australian Migrant Resource Centre (AMRC)
+    phone: 08 8217 9500
+    location: 23 Coglin St, Adelaide SA 5000, Australia
+    website: https://amrc.org.au
+    # indigenous: True
+  - service name: Nunkuwarrin Yunti
+    phone: (08) 8406 1600
+    location: 182 Wakefield St, Adelaide SA 5000, Australia
+    website: reception@nunku.org.au
+  - service name: St Lukes Anglicare Church
+    phone: 08 8231 4149
+    location: 35 Whitmore Square, Adelaide SA 5000, Australia
+    website: office2@saintlukessa.com.au
+  - service name: The Salvation Army
+    phone: 08 8227 0199
+    location: 277 Pirie St, Adelaide SA 5000, Australia
+    website: https://www.salvationarmy.org.au/adelaidecity/
 ---

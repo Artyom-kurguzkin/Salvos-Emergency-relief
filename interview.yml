@@ -1,17 +1,47 @@
+# secondary driver
+---
+include:
+  - database.yml
+  - questions.yml
+  - display_services.yml
+---
 event: interview_suvey
-question: helpline number
+question: Final Screen
 subquestion: |
-  <style>
-    .btn {
-      display: inline-flex;
-      margin: 15px; /* Increased margin for spacing */
-      padding: 15px 30px; /* Increased padding for larger buttons */
-      font-size: 18px; /* Larger font size */
-    }
-  </style>
-  
-  Survey questions will go here
-  
+  Our volunteers will contact you shortly.
+  In the meanwhile, we recommend you look into the following services: 
+
+  * ${display_services_table}
+
 buttons:
   - Exit: exit
   - Restart: restart
+---
+table: display_services_table
+rows: display_services
+columns: 
+  - Name: |
+      '[{}]({})'.format( row_item['service name'], row_item['website'] )
+  - Phone: |
+      '[{}](tel:{})'.format(row_item['phone'], row_item['phone'])
+
+---
+#   % if intro_provided and email_sent_ok:
+#   The e-mail was sent successfully.
+#   % else:
+#   There was a problem sending the e-mail.
+#   % endif
+# ---
+# # email content
+# template: notification
+# subject: |
+#   Greetings, ${ recipient }!
+# content: |
+#   Our volunteers will contact you shortly.
+#   In the meanwhile, we recommend you look into the following services:
+
+#   * ${display_services_table}
+
+#   Have a nice day!
+  
+# 

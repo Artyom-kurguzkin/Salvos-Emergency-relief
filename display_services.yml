@@ -1,0 +1,12 @@
+# display_services.yml
+---
+objects:
+  - display_services: DAList.using(there_are_any=True, auto_gather=False)
+---
+code: |
+  for service in database:
+    if lives_in_sa:
+      display_services.append( service )
+
+    display_services.gathered = True
+---
