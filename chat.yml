@@ -1,5 +1,5 @@
 event: interview_chat
-question: helpline number
+question: Contact Us!
 subquestion: |
   <style>
     .btn {
@@ -10,8 +10,23 @@ subquestion: |
     }
   </style>
   
-  Chat will be here
+  Whilst we do strongly suggest completing a Relief Form in order for our staff to find you suitable and direct support, we understand this may not be for everyone therefore we phone assistance lines open between 9am and 4pm and also on site location to recive support.
   
 buttons:
-  - Exit: exit
-  - Restart: restart
+  - Quick Exit: exit
+  - Call Us
+  - Email Us
+  - Find a Salvos Location
+  - Relief Form
+---
+mandatory: true
+code: |
+  if interview_choice == 'Home':
+    interview_talking
+  elif interview_choice == 'Contact Us':
+    interview_chat
+  elif interview_choice == 'FAQ':
+    interview_browse
+  elif interview_choice == 'Relief Form':
+    interview_suvey
+---

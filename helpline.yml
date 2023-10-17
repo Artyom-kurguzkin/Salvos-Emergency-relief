@@ -1,5 +1,5 @@
 event: interview_talking
-question: helpline number
+question: What is Emergency Relief?
 subquestion: |
   <style>
     .btn {
@@ -9,13 +9,22 @@ subquestion: |
       font-size: 18px; /* Larger font size */
     }
   </style>
+    </style>
+  <div style="text-align: center;">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/The_Salvation_Army.svg/1200px-The_Salvation_Army.svg.png" height="400">
+  </img>
+  </div>
   
-  For emergency relief please call between 9am and 4pm - Salvation Army Phone Assistance Line 8130 6188 
   
-  Financial Counselling - Please call 1800 722 363 to book an appointment. 
-  
-  Food and food parcels available without an ER appointment from 9am – 3.30pm Monday - Friday.
-  
+     In Australia, The Salvation Army financial relief services are run according to the Doorways philosophy. Doorways provides emergency relief and holistic case management with referral to internal and external support services. 
+     
+     Doorways aims to support people as they seek to make changes in their lives. We believe everyone has the capacity to change and Doorways caseworkers walk alongside people as they develop plans to achieve their goals. 
+     
+     We also work towards identifying and solving the issues contributing to long-term economic hardship. To do this, we continuously support and train our team to ensure that support services are of the highest quality. 
+     
+     Doorways works hand in hand with our Moneycare financial counselling program to assist individuals to regain control of their finances. We provide early-education and prevention strategies for people who may be at risk of financial hardship. Doorways, together with teams from multiple programs, are working at the coalface of community, partnering with individuals and families for a better future.
+
 buttons:
-  - Exit: exit
-  - Restart: restart
+  - Quick Exit: exit
+  - Relief Form
+  - Contact Us

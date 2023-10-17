@@ -1,0 +1,50 @@
+metadata:
+  title: Salvation Army
+---
+include:
+  - interview.yml
+  - chat.yml
+  - helpline.yml
+  - browse.yml
+---
+# Welcome screen
+mandatory: True
+question: Welcome the Salvation Army Emergency Relief App
+subquestion: |
+     **Disclaimer:** This digital platform has been developed by Flinder University Students for the South Australian Salvation Army. A Quick Exit button is located at the bottom of your screen to ensure your safety. The Platform aims to provide emergency relief clients with a source that ensures quick and timely access to support utilising an online triage format. While also reducing the current steps to receive support and creating a more accessible environment for all. Please note that the application’s advice is not legal advice and personal information inputted in the form by you is stored and viewed by the Savlos staff and branches to find suitable help for you. By clicking continue, you are agreeing not to treat the app as legal advice and agreeing to store your information.
+buttons:
+  - Quick Exit: exit
+  - Accept and Continue: continue
+---
+question: |
+  <div style="text-align: center;">
+    <h1>Menu</h1>
+  </div>
+subquestion: |
+  <style>
+    .btn {
+      display: flex;
+      flex-direction: column;
+      margin: 25px; /* Increased margin for spacing */
+      padding: 15px 30px; /* Increased padding for larger buttons */
+      font-size: 18px; /* Larger font size */
+    }
+  </style>
+field: interview_choice
+buttons:
+  - Home
+  - Contact Us
+  - FAQ
+  - Relief Form
+---
+mandatory: true
+code: |
+  if interview_choice == 'Home':
+    interview_talking
+  elif interview_choice == 'Contact Us':
+    interview_chat
+  elif interview_choice == 'FAQ':
+    interview_browse
+  elif interview_choice == 'Relief Form':
+    interview_suvey
+---
