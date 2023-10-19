@@ -1,0 +1,14 @@
+# questions.yml
+---
+question: Please fill in the form
+fields:
+  - do you live in South Australia?: lives_in_sa
+    datatype: yesnoradio 
+  - Are you experiencing any of the following?: needs
+    datatype: dropdown
+    choices:
+      - Shelter
+      - Food
+      - Medications
+      - Finances
+      - Other
