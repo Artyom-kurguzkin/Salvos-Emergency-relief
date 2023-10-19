@@ -1,16 +1,14 @@
 # questions.yml
 ---
-question: do you live in australia?
-# subquestion: |
-#   <style>
-#     .btn {
-#       display: inline-flex;
-#       margin: 15px; /* Increased margin for spacing */
-#       padding: 15px 30px; /* Increased padding for larger buttons */
-#       font-size: 18px; /* Larger font size */
-#     }
-#   </style>
+question: Please fill in the form
 fields:
-  - no label: lives_in_sa
-    datatype: yesnoradio
----
+  - do you live in South Australia?: lives_in_sa
+    datatype: yesnoradio 
+  - Are you experiencing any of the following?: needs
+    datatype: dropdown
+    choices:
+      - Shelter
+      - Food
+      - Medications
+      - Finances
+      - Other

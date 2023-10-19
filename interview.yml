@@ -18,7 +18,7 @@ buttons:
   - Restart: restart
 ---
 table: display_services_table
-rows: display_services
+rows: display_places
 columns: 
   - Name: |
       '[{}]({})'.format( row_item['service name'], row_item['website'] )
