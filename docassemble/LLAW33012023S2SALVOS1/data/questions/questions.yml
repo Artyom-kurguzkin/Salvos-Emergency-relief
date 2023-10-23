@@ -1,9 +1,69 @@
 # questions.yml
 ---
+question: Terms and conditions
+subquestion: |
+  Salvation Army Emergency Relief Service Terms and Conditions
+
+  Welcome to the Salvation Army Emergency Relief Service! We are dedicated to providing essential emergency relief to those in need. Before you proceed, please read the following terms and conditions carefully.
+
+  Confidentiality and Privacy
+  All information provided will be kept private and confidential in accordance with the Privacy Act 1988 (Cth). Please see the Salvation Army privacy policy through the link below for more information.
+  https://www.salvationarmy.org.au/about-us/governance-policy/privacy-policy/
+
+  Information Collection and Use
+  The Salvation Army collects your information solely for the purpose of connecting you with an appropriate service provider who can offer emergency relief assistance. Your essential information will only be shared with authorised service providers who are directly involved in providing emergency relief services.
+
+  The contents of this application do not constitute legal advice, and should not be relied upon. If you need legal advice, please consult a legal professional. This application will ask questions on sensitive topics pertaining to personal identity. This may cause distress for some people. If your health and wellbeing are at serious risk, please contact 000 for police or ambulance services.
+
+  Consent
+  By using this application, you acknowledge that you have read, understood, and agreed to these terms and conditions, and you consent to the collection and use of your information as described. Thank you for trusting us to assist you.
+
+field: terms
+buttons:
+  - "I accept": True
+  - "decline": False
+---
+question: What is emergency relief
+subquestion: |
+  Each year, across Australia, thousands of individuals and families come to The Salvation Army for help.  We help people in crisis meet their immediate needs, because we believe no one should have to go without the essentials. 
+  
+  Salvos aims to support people seeking emergency relief services. We believe that everyone has the right to access help with the additional support of Salvos employees. 
+  
+  We aim to help identify and solve the issues relating to homelessness, substance abuse, domestic abuse, allied healthcare and financial hardship. To do this we have provided a relief form to determine what areas are the strongest services to be able to provide support.
+
+  Do you require emergency relief services?
+
+yesno: relief
+---
 question: Please fill in the form
 fields:
-  - do you live in South Australia?: lives_in_sa
-    datatype: yesnoradio 
+  - What is your prefered name?: name
+  - Which pronounce do you identify with?: pronoun
+    datatype: dropdown
+    choices:
+      - She/her
+      - He/him
+      - They/them
+      - Prefer not to answer
+      - other
+  - What language/s do you speak?: language
+  - Do you identify as Aboriginal/Torres Strait Islander?: indigenous
+    datatype: dropdown
+    choices:
+      - yes
+      - no
+      - prefer not to answer
+      - optional
+  - Would you like to specify whether you live with disability?: disabilities
+    datatype: dropdown
+    choices:
+      - yes
+      - no
+      - prefer not to answer
+      - more info
+---
+question: Please fill in the form
+fields:
   - Are you experiencing any of the following?: needs
     datatype: dropdown
     choices:
@@ -12,3 +72,18 @@ fields:
       - Medications
       - Finances
       - Other
+  - Tell us more about your situation, or provide any other comments or feedback: info
+    input type: area
+  - How should we contact you?: contact_method
+    input type: area
+  
+  
+      
+---
+question: Please fill in the form
+fields:
+  - Are you over 18?: over_18
+    datatype: yesno 
+  - do you live in South Australia?: lives_in_sa
+    datatype: yesno
+---

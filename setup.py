@@ -46,7 +46,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.LLAW33012023S2SALVOS1',
       version='0.0.1',
       description=('A docassemble extension.'),
-      long_description='test commit ',
+      long_description='survey',
       long_description_content_type='text/markdown',
       author='Artyom Kurguzkin',
       author_email='kurg0002@flinders.edu.au',

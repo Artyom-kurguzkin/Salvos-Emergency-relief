@@ -1,12 +1,9 @@
+---
 include:
-  - interview.yml
-  - chat.yml
-  - helpline.yml
-  - browse.yml
-  - terms_and_conditions.yml
+  - questions.yml
 ---
 # Welcome screen
-mandatory: True
+mandatory: true
 question: Wlecome SALVOS emergency relief app
 subquestion: |
  Welcome to the Salvation Army Emergency Relief service. By filling out a short survey, our volunteers will be able to assist you or redirect you to the services you need. 
@@ -25,59 +22,87 @@ subquestion: |
 buttons:
   - Exit: exit
   - Continue: continue
-
+  
 ---
 mandatory: true
-question: What is emergency relief
+code: |
+  if terms:
+    if relief:
+      if lives_in_sa == False:
+        no_sa
+      elif over_18 == False:
+        no_18
+      else:
+        good
+    else:
+      no_relief
+  else:
+    terms_not_accepted
+---
+event: no_sa
+question: you do not live in South Australia.
 subquestion: |
-  Each year, across Australia, thousands of individuals and families come to The Salvation Army for help.  We help people in crisis meet their immediate needs, because we believe no one should have to go without the essentials. 
-  
-  Salvos aims to support people seeking emergency relief services. We believe that everyone has the right to access help with the additional support of Salvos employees. 
-  
-  We aim to help identify and solve the issues relating to homelessness, substance abuse, domestic abuse, allied healthcare and financial hardship. To do this we have provided a relief form to determine what areas are the strongest services to be able to provide support.
+    Unfortunately, you are not eligible for this service because you do not live in South Australia. This service is currently only available for those living in South Australia. The Salvation Army provides services nationwide. For services available in your State or Territory, follow the link below.
+    
+    https://www.salvationarmy.org.au/need-help/
 
-field: choice
 buttons:
   - Exit: exit
-  - Continue: continue
-  - Terms and conditions: conditions
+  - Restart: restart
 ---
-mandatory: true
-code: |
-  if choice == 'conditions':
-    terms_and_conditions
----
-
----
-question: |
-  <div style="text-align: center;">
-    <h1>Select one of the options</h1>
-  </div>
+event: no_18
+question: under the age of 18.
 subquestion: |
-  <style>
-    .btn {
-      display: flex;
-      flex-direction: column;
-      margin: 25px; /* Increased margin for spacing */
-      padding: 15px 30px; /* Increased padding for larger buttons */
-      font-size: 18px; /* Larger font size */
-    }
-  </style>
-field: interview_choice
+  Unfortunately, you are not eligible for this service because you are under the age of 18. This service is currently only available for people who are at least 18 years old.
+  
+  The Salvation Army is committed to the safety and well-being of people of all ages, particularly children. For Youth Services, please follow the link below. 
+  
+  https://www.salvationarmy.org.au/need-help/youth-services/
+  
 buttons:
-  - Call us
-  - Learn about terms and conditions
-  - Browse
-  - Survey
+  - Exit: exit
+  - Restart: restart
 ---
-mandatory: true
-code: |
-  if interview_choice == 'Call us':
-    interview_talking
-  elif interview_choice == 'Chat':
-    interview_chat
-  elif interview_choice == 'Browse':
-    interview_browse
-  elif interview_choice == 'Survey':
-    interview_suvey
+event: good
+question: summary
+subquestion: |
+  Thank you, your claim is now in progress. We will contact you by the phone number or email address you supplied as soon as possible. If your health or safety are at urgent risk, please contact 000 for ambulance, police, or fire services. For urgent mental health concerns, contact 13 11 14 for Lifeline.
+  
+  pronoun: ${pronoun}
+  
+  Your name: ${name}
+  
+  your language: ${language} 
+  
+  Indigenous status: ${indigenous}
+  
+  disabilities: ${disabilities}
+  
+  Service you asked for: ${needs}
+  
+  info: ${info}
+  
+  contact: ${contact_method}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: terms_not_accepted
+question: Terms of use were declined
+subquestion: |
+  You have to accept the terms of use to proceed.
+
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: no_relief
+question: this application can't help you
+subquestion: |
+  Look for some other stuff
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
 ---
