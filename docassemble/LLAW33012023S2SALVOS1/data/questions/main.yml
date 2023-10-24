@@ -82,7 +82,7 @@ subquestion: |
   
   info: ${info}
   
-  contact: ${contact_method}
+  contact: ${contact_method} : ${contact_address}
   
 buttons:
   - Exit: exit

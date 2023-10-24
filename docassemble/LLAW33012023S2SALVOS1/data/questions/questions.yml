@@ -39,6 +39,7 @@ question: Please fill in the form
 fields:
   - What is your prefered name?: name
   - Which pronounce do you identify with?: pronoun
+    required: False
     datatype: dropdown
     choices:
       - She/her
@@ -46,14 +47,18 @@ fields:
       - They/them
       - Prefer not to answer
       - other
+  - Please specify: pronoun
+    show if:
+      variable: pronoun
+      is: other
   - What language/s do you speak?: language
+    required: False
   - Do you identify as Aboriginal/Torres Strait Islander?: indigenous
     datatype: dropdown
     choices:
       - yes
       - no
       - prefer not to answer
-      - optional
   - Would you like to specify whether you live with disability?: disabilities
     datatype: dropdown
     choices:
@@ -61,24 +66,54 @@ fields:
       - no
       - prefer not to answer
       - more info
+  - More info: disabilities
+    input type: area
+    show if:
+      variable: disabilities
+      is: more info
 ---
 question: Please fill in the form
 fields:
   - Are you experiencing any of the following?: needs
     datatype: dropdown
     choices:
-      - Shelter
-      - Food
-      - Medications
-      - Finances
+      - Financial hardship 
+      - Homelessness 
+      - Domestic abuse
+      - Alied healthcare
+      - Alcoho and/or drug abuse
       - Other
+  - Please specify: needs
+    show if:
+      variable: needs
+      is: Other
   - Tell us more about your situation, or provide any other comments or feedback: info
     input type: area
   - How should we contact you?: contact_method
-    input type: area
-  
-  
-      
+    datatype: dropdown
+    choices:
+      - email
+      - phone call
+      - text message
+      - other
+  - E-mail address: contact_address
+    datatype: email
+    show if:
+      variable: contact_method
+      is: email
+  - phone number: contact_address
+    show if:
+      variable: contact_method
+      is: phone call 
+  - phone number: contact_address
+    show if:
+      variable: contact_method
+      is: text message 
+  - Please specify: contact_address
+    show if:
+      variable: contact_method
+      is: other 
+    
 ---
 question: Please fill in the form
 fields:
@@ -86,4 +121,5 @@ fields:
     datatype: yesno 
   - do you live in South Australia?: lives_in_sa
     datatype: yesno
+
 ---
