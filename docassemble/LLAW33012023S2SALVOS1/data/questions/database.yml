@@ -7,17 +7,24 @@ data:
     phone: 83059434
     location: 82 Gilbert St, Adelaide SA 5000, Australia
     website: https://anglicaresa.com.au
+    services:
+      - Shelter
+      - Finances
     # open hours:
     # indigenous: False
   - service name: Australian Migrant Resource Centre (AMRC)
     phone: 08 8217 9500
     location: 23 Coglin St, Adelaide SA 5000, Australia
     website: https://amrc.org.au
+    services:
+      - Medications
     # indigenous: True
   - service name: Nunkuwarrin Yunti
     phone: (08) 8406 1600
     location: 182 Wakefield St, Adelaide SA 5000, Australia
     website: reception@nunku.org.au
+    services:
+      - Other
   - service name: St Lukes Anglicare Church
     phone: 08 8231 4149
     location: 35 Whitmore Square, Adelaide SA 5000, Australia
@@ -26,4 +33,7 @@ data:
     phone: 08 8227 0199
     location: 277 Pirie St, Adelaide SA 5000, Australia
     website: https://www.salvationarmy.org.au/adelaidecity/
+    services:
+      - Finances
+      - Food
 ---

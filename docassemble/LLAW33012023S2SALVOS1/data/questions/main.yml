@@ -1,0 +1,108 @@
+---
+include:
+  - questions.yml
+---
+# Welcome screen
+mandatory: true
+question: Wlecome SALVOS emergency relief app
+subquestion: |
+ Welcome to the Salvation Army Emergency Relief service. By filling out a short survey, our volunteers will be able to assist you or redirect you to the services you need. 
+
+  We value and include people of all cultures, languages, abilities, sexual orientations, gender identities, gender expressions and intersex status. We are committed to providing programs that are fully inclusive. We are committed to the safety and wellbeing of people of all ages.
+
+  The Salvation Army Australia acknowledges the Traditional Owners of the land on which we meet and work and pay our respect to Elders past, present and future. 
+
+  The Salvation Army is an international movement. Our mission is to preach the gospel of Jesus Christ and to meet human needs in his name with love and without discrimination.
+ 
+ Contact us
+ Salvationarmy.org.au 
+ 13 SALVOS (13 72 59)
+
+
+buttons:
+  - Exit: exit
+  - Continue: continue
+  
+---
+mandatory: true
+code: |
+  if terms:
+    if relief:
+      if lives_in_sa == False:
+        no_sa
+      elif over_18 == False:
+        no_18
+      else:
+        good
+    else:
+      no_relief
+  else:
+    terms_not_accepted
+---
+event: no_sa
+question: you do not live in South Australia.
+subquestion: |
+    Unfortunately, you are not eligible for this service because you do not live in South Australia. This service is currently only available for those living in South Australia. The Salvation Army provides services nationwide. For services available in your State or Territory, follow the link below.
+    
+    https://www.salvationarmy.org.au/need-help/
+
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: no_18
+question: under the age of 18.
+subquestion: |
+  Unfortunately, you are not eligible for this service because you are under the age of 18. This service is currently only available for people who are at least 18 years old.
+  
+  The Salvation Army is committed to the safety and well-being of people of all ages, particularly children. For Youth Services, please follow the link below. 
+  
+  https://www.salvationarmy.org.au/need-help/youth-services/
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: good
+question: summary
+subquestion: |
+  Thank you, your claim is now in progress. We will contact you by the phone number or email address you supplied as soon as possible. If your health or safety are at urgent risk, please contact 000 for ambulance, police, or fire services. For urgent mental health concerns, contact 13 11 14 for Lifeline.
+  
+  pronoun: ${pronoun}
+  
+  Your name: ${name}
+  
+  your language: ${language} 
+  
+  Indigenous status: ${indigenous}
+  
+  disabilities: ${disabilities}
+  
+  Service you asked for: ${needs}
+  
+  info: ${info}
+  
+  contact: ${contact_method} : ${contact_address}
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: terms_not_accepted
+question: Terms of use were declined
+subquestion: |
+  You have to accept the terms of use to proceed.
+
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
+event: no_relief
+question: this application can't help you
+subquestion: |
+  Look for some other stuff
+  
+buttons:
+  - Exit: exit
+  - Restart: restart
+---
