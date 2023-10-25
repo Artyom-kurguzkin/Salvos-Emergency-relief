@@ -33,6 +33,7 @@ code: |
       elif over_18 == False:
         no_18
       else:
+        email_sent_ok = send_email(to='artyom.kurguzkin@gmail.com', template=notification)
         good
     else:
       no_relief
@@ -68,6 +69,8 @@ question: summary
 subquestion: |
   Thank you, your claim is now in progress. We will contact you by the phone number or email address you supplied as soon as possible. If your health or safety are at urgent risk, please contact 000 for ambulance, police, or fire services. For urgent mental health concerns, contact 13 11 14 for Lifeline.
   
+  submitted responses:
+  
   pronoun: ${pronoun}
   
   Your name: ${name}
@@ -83,10 +86,11 @@ subquestion: |
   info: ${info}
   
   contact: ${contact_method} : ${contact_address}
-  
+
 buttons:
   - Exit: exit
   - Restart: restart
+
 ---
 event: terms_not_accepted
 question: Terms of use were declined
@@ -105,4 +109,29 @@ subquestion: |
 buttons:
   - Exit: exit
   - Restart: restart
+---
+template: notification
+subject: |
+  Greetings,
+content: |
+  This is an e-mail sent from a
+  **docassemble** interview.
+
+  submitted responses:
+  
+  pronoun: ${pronoun}
+  
+  Your name: ${name}
+  
+  your language: ${language} 
+  
+  Indigenous status: ${indigenous}
+  
+  disabilities: ${disabilities}
+  
+  Service you asked for: ${needs}
+  
+  info: ${info}
+  
+  contact: ${contact_method} : ${contact_address}
 ---
