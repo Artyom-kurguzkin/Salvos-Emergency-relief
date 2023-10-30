@@ -34,7 +34,7 @@ code: |
       elif over_18 == False:
         no_18
       else:
-        email_sent_ok = send_email(to='artyom.kurguzkin@gmail.com', template=notification)
+        email_sent_ok = send_email(to='artyom.kurguzkin@gmail.com', template=notification, attachments=data)
         good
     else:
       no_relief
@@ -131,4 +131,31 @@ content: |
   info: ${info}
   
   contact: ${contact_method} : ${contact_address}
+---
+attachment:
+  name: data
+  filename: data
+  valid formats:
+      - pdf
+  description: |
+    submitted responses
+  variable name: data
+  content: |
+    submitted responses:
+    
+    pronoun: ${pronoun}
+    
+    Your name: ${name}
+    
+    your language: ${language} 
+    
+    Indigenous status: ${indigenous}
+    
+    disabilities: ${disabilities}
+    
+    Service you asked for: ${needs}
+    
+    info: ${info}
+    
+    contact: ${contact_method} : ${contact_address}
 ---
