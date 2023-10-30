@@ -4,7 +4,7 @@ include:
 ---
 # Welcome screen
 mandatory: true
-question: Wlecome SALVOS emergency relief app
+question: Welcome SALVOS Emergency Relief App
 subquestion: |
  Welcome to the Salvation Army Emergency Relief service. By filling out a short survey, our volunteers will be able to assist you or redirect you to the services you need. 
 
@@ -15,12 +15,13 @@ subquestion: |
   The Salvation Army is an international movement. Our mission is to preach the gospel of Jesus Christ and to meet human needs in his name with love and without discrimination.
  
  Contact us
- Salvationarmy.org.au 
+ <a href="https://www.salvationarmy.org.au/locations/south-australia/">Salvationarmy.org.au </a>
  13 SALVOS (13 72 59)
 
 
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Continue: continue
   
 ---
@@ -41,54 +42,39 @@ code: |
     terms_not_accepted
 ---
 event: no_sa
-question: you do not live in South Australia.
+question: You do not live in South Australia.
 subquestion: |
     Unfortunately, you are not eligible for this service because you do not live in South Australia. This service is currently only available for those living in South Australia. The Salvation Army provides services nationwide. For services available in your State or Territory, follow the link below.
     
-    https://www.salvationarmy.org.au/need-help/
+    <a href="https://www.salvationarmy.org.au/need-help/">www.salvationarmy.org.au/need-help/</a>
 
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
 ---
 event: no_18
-question: under the age of 18.
+question: You are under the age of 18.
 subquestion: |
   Unfortunately, you are not eligible for this service because you are under the age of 18. This service is currently only available for people who are at least 18 years old.
   
   The Salvation Army is committed to the safety and well-being of people of all ages, particularly children. For Youth Services, please follow the link below. 
   
-  https://www.salvationarmy.org.au/need-help/youth-services/
+  <a href="https://www.salvationarmy.org.au/need-help/youth-services/">www.salvationarmy.org.au//need-help/youth-services</a>
   
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
 ---
 event: good
 question: summary
 subquestion: |
   Thank you, your claim is now in progress. We will contact you by the phone number or email address you supplied as soon as possible. If your health or safety are at urgent risk, please contact 000 for ambulance, police, or fire services. For urgent mental health concerns, contact 13 11 14 for Lifeline.
-  
-  submitted responses:
-  
-  pronoun: ${pronoun}
-  
-  Your name: ${name}
-  
-  your language: ${language} 
-  
-  Indigenous status: ${indigenous}
-  
-  disabilities: ${disabilities}
-  
-  Service you asked for: ${needs}
-  
-  info: ${info}
-  
-  contact: ${contact_method} : ${contact_address}
 
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
 
 ---
@@ -99,15 +85,26 @@ subquestion: |
 
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
 ---
 event: no_relief
-question: this application can't help you
+question: Do not require emergency relief services
 subquestion: |
-  Look for some other stuff
-  
+  This service aims to provide emergency relief services to those in need. If you require other services or assistance there are other options available. 
+
+  For other services offered by the Salvation Army, follow the link below or contact us. 
+  <a href="https://www.salvationarmy.org.au/need-help/">www.salvationarmy.org.au/need-help/</a>  
+
+  Contact information 
+  Salvationarmy.org.au 
+  13 SALVOS (13 72 59)
+
+  If your health or safety are at urgent risk please contact 000 for ambulance, police or fire services. For urgent mental health concerns, contact 13 11 14 for Lifeline.
+
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
 ---
 template: notification

@@ -1,6 +1,8 @@
 # questions.yml
 ---
-question: Terms and conditions
+features:
+  debug: False
+question: Terms and Conditions
 subquestion: |
   Salvation Army Emergency Relief Service Terms and Conditions
 
@@ -8,7 +10,7 @@ subquestion: |
 
   Confidentiality and Privacy
   All information provided will be kept private and confidential in accordance with the Privacy Act 1988 (Cth). Please see the Salvation Army privacy policy through the link below for more information.
-  https://www.salvationarmy.org.au/about-us/governance-policy/privacy-policy/
+  <a href="https://www.salvationarmy.org.au/about-us/governance-policy/privacy-policy/">www.salvationarmy.org.au/about-us/governance-policy/privacy-policy/</a>
 
   Information Collection and Use
   The Salvation Army collects your information solely for the purpose of connecting you with an appropriate service provider who can offer emergency relief assistance. Your essential information will only be shared with authorised service providers who are directly involved in providing emergency relief services.
@@ -21,9 +23,9 @@ subquestion: |
 field: terms
 buttons:
   - "I accept": True
-  - "decline": False
+  - "I decline": False
 ---
-question: What is emergency relief
+question: What is Emergency Relief?
 subquestion: |
   Each year, across Australia, thousands of individuals and families come to The Salvation Army for help.  We help people in crisis meet their immediate needs, because we believe no one should have to go without the essentials. 
   
@@ -38,7 +40,12 @@ yesno: relief
 question: Please fill in the form
 fields:
   - What is your prefered name?: name
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
+    required: False
   - Which pronounce do you identify with?: pronoun
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     required: False
     datatype: dropdown
     choices:
@@ -48,54 +55,69 @@ fields:
       - Prefer not to answer
       - other
   - Please specify: pronoun
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     show if:
       variable: pronoun
       is: other
   - What language/s do you speak?: language
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     required: False
   - Do you identify as Aboriginal/Torres Strait Islander?: indigenous
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     datatype: dropdown
     choices:
       - yes
       - no
       - prefer not to answer
   - Would you like to specify whether you live with disability?: disabilities
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     datatype: dropdown
     choices:
       - yes
       - no
-      - prefer not to answer
-      - more info
   - More info: disabilities
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     input type: area
     show if:
       variable: disabilities
-      is: more info
+      is: yes
 ---
 question: Please fill in the form
 fields:
   - Are you experiencing any of the following?: needs
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     datatype: dropdown
     choices:
       - Financial hardship 
       - Homelessness 
       - Domestic abuse
       - Alied healthcare
-      - Alcoho and/or drug abuse
+      - Alcohol and/or drug abuse
       - Other
   - Please specify: needs
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     show if:
       variable: needs
       is: Other
   - Tell us more about your situation, or provide any other comments or feedback: info
     input type: area
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
   - How should we contact you?: contact_method
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
     datatype: dropdown
     choices:
       - email
       - phone call
       - text message
-      - other
   - E-mail address: contact_address
     datatype: email
     show if:
@@ -108,18 +130,16 @@ fields:
   - phone number: contact_address
     show if:
       variable: contact_method
-      is: text message 
-  - Please specify: contact_address
-    show if:
-      variable: contact_method
-      is: other 
-    
+      is: text message     
 ---
 question: Please fill in the form
 fields:
   - Are you over 18?: over_18
-    datatype: yesno 
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
+    datatype: yesnoradio 
   - do you live in South Australia?: lives_in_sa
-    datatype: yesno
-
+    help: |
+      placeholder text that needs to be filled with legal interpretation.
+    datatype: yesnoradio
 ---
