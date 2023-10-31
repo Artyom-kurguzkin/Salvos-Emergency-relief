@@ -1,7 +1,11 @@
 # questions.yml
 ---
+metadata:
+  title: SALVOS Emergency Relief App
+---
 features:
   debug: False
+  hide corner interface: True
 question: Terms and Conditions
 subquestion: |
   Salvation Army Emergency Relief Service Terms and Conditions
