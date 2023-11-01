@@ -1,0 +1,213 @@
+---
+features:
+  css: design.css
+  auto color scheme: False
+  debug: False
+  hide standard menu: Truehttps://docassemble.flinders.edu.au/playground?project=Finaldesignelements&file=main.yml#
+---
+objects: 
+ - SALVOSLOGO: DAStaticFile.using(filename='1200px-The_Salvation_Army.svg.png')
+---
+mandatory: True
+code: |
+  set_parts(logo='<img src="' + SALVOSLOGO.url_for() + '" style="height: 70px; width: 60px;">')
+
+---
+metadata:
+  title: Salvation Army Emergency Relief Form
+  short title: Savlos Emergency Relief
+  description: |
+    An application for emergency relief triage forms.
+  authors:
+    - name: Ebony Gibbins 
+      organization: Flinders University
+    - name: Erin Charman
+      organization: Flinders University
+    - name: Artyom Kurguzkin
+      organization: Flinders University
+    - name: Isabella Hynes
+      organization: Flinders University
+    - name: Emily Ioannou-Mena
+      organization: Flinders University
+    - name: Alexandria Foss
+      organization: Flinders University
+  common_footer: "Developed by Flinders University in collaboration with MSM Legal Pty Ltd"
+---
+include:
+  - questions.yml
+---
+# Welcome screen
+mandatory: true
+css_class: center-bold-heading
+question: <h1 class="center-bold-heading">Welcome!</h1>
+subquestion: |
+
+ Welcome to the Salvation Army Emergency Relief service. By filling out a short survey, our volunteers will be able to assist you or redirect you to the services you need. 
+
+  We value and include people of all cultures, languages, abilities, sexual orientations, gender identities, gender expressions and intersex status. We are committed to providing programs that are fully inclusive. We are committed to the safety and wellbeing of people of all ages.
+
+  The Salvation Army Australia acknowledges the Traditional Owners of the land on which we meet and work and pay our respect to Elders past, present and future. 
+
+  The Salvation Army is an international movement. Our mission is to preach the gospel of Jesus Christ and to meet human needs in his name with love and without discrimination.
+ 
+ 
+ <h1><span style="color: red;">Contact us</span> </h1>
+  
+ **Website:** <a href="https://www.salvationarmy.org.au/locations/south-australia/">Salvationarmy.org.au </a>
+ 
+ **Phone Number:** <a href="tel:137259">13 SALVOS (13 72 59)</a>
+
+
+buttons:
+  - Quick Exit X: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
+  - Continue > : continue
+  
+---
+mandatory: true
+code: |
+  if terms:
+    if relief:
+      if lives_in_sa == False:
+        no_sa
+      elif over_18 == False:
+        no_18
+      else:
+        email_sent_ok = send_email(to='artyom.kurguzkin@gmail.com', template=notification, attachments=data)
+        good
+    else:
+      no_relief
+  else:
+    terms_not_accepted
+---
+event: no_sa
+question: <h1 class="center-bold-heading2">Sorry, This service is currently only for those who live in South Australia.</h1>
+subquestion: |
+    Unfortunately, you are not eligible for this service because you do not live in South Australia. This service is currently only available for those living in South Australia. The Salvation Army provides services nationwide. For services available in your State or Territory, follow the link below.
+    
+    <a href="https://www.salvationarmy.org.au/need-help/">www.salvationarmy.org.au/need-help/</a>
+
+buttons:
+  - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
+  - Restart: restart
+---
+event: no_18
+question: Sorry, this service is currently only for those aged over 18.
+subquestion: |
+  Unfortunately, you are not eligible for this service because you are under the age of 18. This service is currently only available for people who are at least 18 years old.
+  
+  The Salvation Army is committed to the safety and well-being of people of all ages, particularly children. For Youth Services, please follow the link below. 
+  
+  <a href="https://www.salvationarmy.org.au/need-help/youth-services/">www.salvationarmy.org.au//need-help/youth-services</a>
+  
+buttons:
+  - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
+  - Restart: restart
+---
+event: good
+question: Thank you!
+subquestion: |
+  Thank you, your claim is now in progress. We will contact you by the phone number or email address you supplied as soon as possible. If your health or safety are at urgent risk, please contact 000 for ambulance, police, or fire services. For urgent mental health concerns, contact 13 11 14 for Lifeline.
+
+buttons:
+  - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
+  - Restart: restart
+
+---
+event: terms_not_accepted
+question: Sorry, you declind the terms of use
+subquestion: |
+  Unfortunately, you must accept the terms and conditions to access our emergency relief services through this app.  
+  
+  If you accept, any information you choose to provide will be kept confidential!
+  
+  If you would rather access our services another way, please contact us! 
+  
+  <h1><span style="color: red;">Contact us</span> </h1>
+  
+   **Website:** <a href="https://www.salvationarmy.org.au/locations/south-australia/">Salvationarmy.org.au </a>
+ 
+   **Phone Number:** <a href="tel:137259">13 SALVOS (13 72 59)</a>
+
+buttons:
+  - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
+  - Restart: restart
+---
+event: no_relief
+question: You do not require emergency relief services
+subquestion: |
+  This service aims to provide emergency relief services to those in need. If you require other services or assistance there are other options available. 
+
+  For other services offered by the Salvation Army, follow the link below or contact us. 
+  
+   <h1><span style="color: red;">Contact us</span> </h1>
+  
+   **Website:** <a href="https://www.salvationarmy.org.au/locations/south-australia/">Salvationarmy.org.au </a>
+ 
+   **Phone Number:** <a href="tel:137259">13 SALVOS (13 72 59)</a>
+
+  If your health or safety are at urgent risk please contact 000 for ambulance, police or fire services. 
+  
+  For urgent mental health concerns, contact 13 11 14 for Lifeline.
+
+buttons:
+  - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
+  - Restart: restart
+---
+template: notification
+subject: |
+  Greetings,
+content: |
+  This is an e-mail sent from a
+  **docassemble** interview.
+
+  submitted responses:
+  
+  pronoun: ${pronoun}
+  
+  Your name: ${name}
+  
+  your language: ${language} 
+  
+  Indigenous status: ${indigenous}
+  
+  disabilities: ${disabilities}
+  
+  Service you asked for: ${needs}
+  
+  info: ${info}
+  
+  contact: ${contact_method} : ${contact_address}
+---
+attachment:
+  name: data
+  filename: data
+  valid formats:
+      - pdf
+  description: |
+    submitted responses
+  variable name: data
+  content: |
+    submitted responses:
+    
+    pronoun: ${pronoun}
+    
+    Your name: ${name}
+    
+    your language: ${language} 
+    
+    Indigenous status: ${indigenous}
+    
+    disabilities: ${disabilities}
+    
+    Service you asked for: ${needs}
+    
+    info: ${info}
+    
+    contact: ${contact_method} : ${contact_address}
+---
