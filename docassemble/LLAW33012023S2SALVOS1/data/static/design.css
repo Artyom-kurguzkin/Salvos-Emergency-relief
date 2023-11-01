@@ -1,0 +1,138 @@
+.navbar{
+    background-color: #000000 !important;
+}
+
+.navbar{
+    border-bottom: 2px solid white; /* Adjust the width and color as needed */
+}
+.navbar .navbar-brand{
+    color : #000000;
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+.navbar .navbar-brand:hover{
+    color: #ffffff; /* White text color for all buttons */
+    font-weight: bold; /* Make the text bold */
+}
+
+.navbar .nav-item a{
+    color: #000000 !important;
+}
+
+.navbar .dropdown-menu{
+    /*  the rgba() function works just like rgb in that
+        it sets a colour.  But the fourth element sets an
+        'alpha' or transaparency value.  Here we are saying
+        to set the transparency to 30%
+    */
+    background-color: #000000; 
+}
+.dropdown-item:hover{
+     background-color: #000000; 
+}
+.navbar form button{
+    background-color: 	 #000000;;
+    color: rgb  #000000;;
+    /* setting the border to 0 disables the border around the button */
+    border:0;
+}
+.navbar form button:hover{
+    background-color: 	#ffffff
+}
+ .button-with-arrow {
+    background-image: url('right-arrow-image.png'); /* Add the URL of your right arrow image */
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px; /* Adjust the padding to position the arrow as desired */
+  }
+.btn-danger, .btn-primary, .btn-secondary, .btn-info, .btn-warning, .btn-success {
+    font-weight: bold; /* Make the text bold for all buttons with red text */
+}
+css:
+  .yesno-relief  {
+    text-align: center;
+  }
+.btn {
+    padding: 20px 40px; /* Adjust the padding values to make the buttons bigger */
+    font-size: 18px; /* Adjust the font size to make the text larger */
+    margin: 50px; /* Add margin to space the buttons out */
+}
+
+footer {
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+    padding: 10px; /* Adjust padding as needed */
+    text-align: center; /* Center the text */
+}
+
+/* Center-align and make questions bold */
+.center-bold-heading {
+  text-align: center;
+  font-weight: bold;
+   font-size: 50px;
+}
+.center-bold-heading2 {
+  text-align: center;
+  font-weight: bold;
+   font-size: 25px;
+}
+
+body {
+    background-color: #000; /* or use 'black' for readability */
+    color: #fff; /* Set text color to white for better contrast */
+}
+body {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 18px;
+   text-align: justify; 
+}
+.large-question {
+    font-size: 20px; /* Adjust the font size as desired */
+}
+.btn-primary {
+    color: #ffffff !important; /* White text color for the buttons */
+    font-weight: bold; /* Make the text bold */
+    background-color: #008000; /* Green background color for the buttons */
+    border: none !important; /* Remove the border */
+}
+.btn-secondary {
+    color: #ffffff !important; /* White text color for the buttons */
+    font-weight: bold; /* Make the text bold */
+    background-color: #ff0000; /* red background color for the buttons */
+    border: none !important; /* Remove the border */
+    position: relative; /* Required for absolute positioning of pseudo-element */
+}
+
+.large-question {
+    font-size: 20px; /* Adjust the font size as desired */
+    text-align: left;
+}
+
+.btn-primary:hover {
+    color: #000000; /* Black text color when hovering */
+    background-color: #ffffff; /* Green background color when hovering */
+}
+.button-false {
+  background-color: red; /* Change the background color to red */
+  color: white; /* Change the text color to white */
+  font-weight: bold; /* Make the text bold */
+  border: none; /* Remove the button border */
+  padding: 10px 20px; /* Adjust padding as needed */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+ 
+}
+.question h1 {
+  text-align: center;
+  font-weight: bold;
+}

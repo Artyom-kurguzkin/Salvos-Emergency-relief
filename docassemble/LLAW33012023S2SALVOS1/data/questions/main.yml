@@ -1,10 +1,44 @@
 ---
+features:
+  css: design.css
+  auto color scheme: False
+  debug: False
+  hide standard menu: Truehttps://docassemble.flinders.edu.au/playground?project=Finaldesignelements&file=main.yml#
+---
+objects: 
+ - SALVOSLOGO: DAStaticFile.using(filename='1200px-The_Salvation_Army.svg.png')
+---
+mandatory: True
+code: |
+  set_parts(logo='<img src="' + SALVOSLOGO.url_for() + '" style="height: 70px; width: 60px;">')
+
+---
+metadata:
+  title: Salvation Army Emergency Relief Form
+  short title: Savlos Emergency Relief
+  description: |
+    An application for emergency relief triage forms.
+  authors:
+    - name: Ebony Gibbins 
+      organization: Flinders University
+    - name: Erin Charman
+      organization: Flinders University
+    - name: Artyom Kurguzkin
+      organization: Flinders University
+    - name: Isabella Hynes
+      organization: Flinders University
+    - name: Emily Ioannou-Mena
+      organization: Flinders University
+    - name: Alexandria Foss
+      organization: Flinders University
+---
 include:
   - questions.yml
 ---
 # Welcome screen
 mandatory: true
-question: Wlecome SALVOS emergency relief app
+css_class: center-bold-heading
+question: <h1 class="center-bold-heading">Welcome!</h1>
 subquestion: |
  Welcome to the Salvation Army Emergency Relief service. By filling out a short survey, our volunteers will be able to assist you or redirect you to the services you need. 
 
@@ -13,16 +47,21 @@ subquestion: |
   The Salvation Army Australia acknowledges the Traditional Owners of the land on which we meet and work and pay our respect to Elders past, present and future. 
 
   The Salvation Army is an international movement. Our mission is to preach the gospel of Jesus Christ and to meet human needs in his name with love and without discrimination.
+
+ <br></br>
+ <h1><span style="color: red; font-size: 28px;">Contact us</span> </h1>
+  
+  
+ **Website:** <a href="https://www.salvationarmy.org.au/locations/south-australia/">Salvationarmy.org.au </a>
  
- Contact us
- Salvationarmy.org.au 
- 13 SALVOS (13 72 59)
+ **Phone Number:** <a href="tel:137259">13 SALVOS (13 72 59)</a>
 
 
 buttons:
-  - Exit: exit
-  - Continue: continue
-  
+  - Quick Exit &#x2718: exit 
+    url: https://www.salvationarmy.org.au/locations/south-australia/
+  - Continue &#x279c: continue
+      
 ---
 mandatory: true
 code: |
@@ -33,6 +72,7 @@ code: |
       elif over_18 == False:
         no_18
       else:
+        email_sent_ok = send_email(to='Foss0008@flinders.edu.au', template=notification, attachments=data)
         good
     else:
       no_relief
@@ -40,69 +80,166 @@ code: |
     terms_not_accepted
 ---
 event: no_sa
-question: you do not live in South Australia.
+question: <h1 class="center-bold-heading2">Sorry, This service is currently only for those who live in South Australia.</h1>
 subquestion: |
     Unfortunately, you are not eligible for this service because you do not live in South Australia. This service is currently only available for those living in South Australia. The Salvation Army provides services nationwide. For services available in your State or Territory, follow the link below.
     
-    https://www.salvationarmy.org.au/need-help/
+    <a href="https://www.salvationarmy.org.au/need-help/">www.salvationarmy.org.au/need-help/</a>
 
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
 ---
 event: no_18
-question: under the age of 18.
+question: <h1 class="center-bold-heading2">Sorry, this service is currently only for those aged over 18.</h1>
 subquestion: |
   Unfortunately, you are not eligible for this service because you are under the age of 18. This service is currently only available for people who are at least 18 years old.
   
   The Salvation Army is committed to the safety and well-being of people of all ages, particularly children. For Youth Services, please follow the link below. 
   
-  https://www.salvationarmy.org.au/need-help/youth-services/
+  <a href="https://www.salvationarmy.org.au/need-help/youth-services/">www.salvationarmy.org.au//need-help/youth-services</a>
   
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
 ---
 event: good
-question: summary
+question: <h1 class="center-bold-heading2">Thank you!</h1>
 subquestion: |
-  Thank you, your claim is now in progress. We will contact you by the phone number or email address you supplied as soon as possible. If your health or safety are at urgent risk, please contact 000 for ambulance, police, or fire services. For urgent mental health concerns, contact 13 11 14 for Lifeline.
+  <div style="text-align: center;">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/The_Salvation_Army.svg/1200px-The_Salvation_Army.svg.png" height="400">
+  </img>
+  </div>
   
-  pronoun: ${pronoun}
+  Thank you, your claim is now in progress! 
   
-  Your name: ${name}
+  We will contact you by the phone number or email address you supplied as soon as possible. 
   
-  your language: ${language} 
+  If your health or safety are at urgent risk, please contact 000 for ambulance, police, or fire services. 
   
-  Indigenous status: ${indigenous}
-  
-  disabilities: ${disabilities}
-  
-  Service you asked for: ${needs}
-  
-  info: ${info}
-  
-  contact: ${contact_method} : ${contact_address}
-  
-buttons:
-  - Exit: exit
-  - Restart: restart
----
-event: terms_not_accepted
-question: Terms of use were declined
-subquestion: |
-  You have to accept the terms of use to proceed.
+  For urgent mental health concerns, contact 13 11 14 for Lifeline.
 
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
+  - Restart: restart
+
+---
+event: terms_not_accepted
+question: <h1 class="center-bold-heading2">Sorry, you declined the terms of use</h1>
+subquestion: |
+  Unfortunately, you must accept the terms and conditions to access our emergency relief services through this app.  
+  
+  If you accept, any information you choose to provide will be kept confidential!
+  
+  If you would rather access our services another way, please contact us! 
+  
+  <br></br>
+  <h1><span style="color: red; font-size: 28px;">Contact us</span> </h1>
+  
+   **Website:** <a href="https://www.salvationarmy.org.au/locations/south-australia/">Salvationarmy.org.au </a>
+ 
+   **Phone Number:** <a href="tel:137259">13 SALVOS (13 72 59)</a>
+
+buttons:
+  - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
 ---
 event: no_relief
-question: this application can't help you
+question: <h1 class="center-bold-heading2"> You do not require emergency relief services</h>
 subquestion: |
-  Look for some other stuff
+  This service aims to provide emergency relief services to those in need. If you require other services or assistance there are other options available. 
+
+  For other services offered by the Salvation Army, follow the link below or contact us. 
   
+  <br></br>
+  <h1><span style="color: red; font-size: 28px;">Contact us</span> </h1>
+  
+   **Website:** <a href="https://www.salvationarmy.org.au/locations/south-australia/">Salvationarmy.org.au </a>
+ 
+   **Phone Number:** <a href="tel:137259">13 SALVOS (13 72 59)</a>
+
+  If your health or safety are at urgent risk please contact 000 for ambulance, police or fire services. 
+  
+  For urgent mental health concerns, contact 13 11 14 for Lifeline.
+
 buttons:
   - Exit: exit
+    url: https://www.salvationarmy.org.au/locations/south-australia/
   - Restart: restart
+---
+template: notification
+subject: |
+  NEW Emerengcy Relief Form
+content: |
+  This is an e-mail sent from a **docassemble** interview.
+   <div style="text-align: center;">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/The_Salvation_Army.svg/1200px-The_Salvation_Army.svg.png" height="400">
+  </img>
+  </div>
+  Please find the submitted form responses below:
+    
+    **Pronoun:** ${pronoun}
+    
+    **Their name:** ${name}
+    
+    **Their language:** ${language} 
+    
+    **Indigenous status:** ${indigenous}
+    
+    **Any disabilities:** ${disabilities}
+    
+    **Service topic:** ${needs}
+    
+    **Further provided infomation:** ${info}
+    
+    **method of contact:** ${contact_method} : ${contact_address}
+---
+attachment:
+  name: data
+  filename: data
+  valid formats:
+      - pdf
+  description: |
+    submitted responses
+  variable name: data
+  content: |
+    <div style="text-align: center;">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/The_Salvation_Army.svg/1200px-The_Salvation_Army.svg.png" height="400">
+    </img>
+    </div>
+    Please find the submitted form responses below:
+    
+    **Pronoun:** ${pronoun}
+    
+    **Their name:** ${name}
+    
+    **Their language:** ${language} 
+    
+    **Indigenous status:** ${indigenous}
+    
+    **Any disabilities:** ${disabilities}
+    
+    **Service topic:** ${needs}
+    
+    **Further provided infomation:** ${info}
+    
+    **method of contact:** ${contact_method} : ${contact_address}
+---
+# Modify the post default screen part to attribute work to Flinders and your client
+# Remember to replace XXXX with your client's name.
+default screen parts:
+  post: |
+    <div style="display: flex; height: 200px; align-items: flex-end; flex-direction: row-reverse">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib-site/resources/images/flinderuni_main_logo_black.png" height="40">
+    </div>
+    <div style="margin: 5px; text-align: center">
+    <cite><small><i>
+    Developed by Flinders University in collaboration with Salvation Army South Australia.
+    </i></small></cite>
+    </div>
+    </div>
 ---
